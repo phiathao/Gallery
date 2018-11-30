@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
+  state = {
+    GalleryList: []
+  }
   componentDidMount(){
     this.getGallery()
   }
@@ -24,6 +28,7 @@ class App extends Component {
         <br/>
         <p>Gallery goes here</p>
         <img src="images/goat_small.jpg"/>
+        <GalleryList GalleryList={this.state.GalleryList} />
       </div>
     );
   }
