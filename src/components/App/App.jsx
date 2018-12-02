@@ -9,6 +9,7 @@ class App extends Component {
   }
   componentDidMount(){
     this.getGallery()
+    console.log(this.state.GalleryList)
   }
   getGallery = ()=>{
     Axios.get('/gallery')
@@ -27,7 +28,7 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <img alt="just a goat" src="images/goat_small.jpg"/>
         <GalleryList GalleryList={this.state.GalleryList} />
       </div>
     );
