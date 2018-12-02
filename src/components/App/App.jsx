@@ -10,6 +10,9 @@ class App extends Component {
     Axios.get('/gallery')
     .then((response) =>{
       console.log(response);
+      this.setState({
+        galleryList : response.data
+      })
     })
     .catch((error)=>{
       console.log(error)
