@@ -11,7 +11,7 @@ class App extends Component {
     .then((response) =>{
       console.log(response);
       this.setState({
-        galleryList : response.data
+        GalleryList : response.data
       })
     })
     .catch((error)=>{
