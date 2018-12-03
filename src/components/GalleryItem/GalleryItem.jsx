@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import './GalleryItem.css';
 
 class GalleryItem extends Component {
     state = {
@@ -29,14 +31,13 @@ class GalleryItem extends Component {
         if (!this.state.pictureIsClick){
             pictureOrAlt = <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/>
         } else {
-            pictureOrAlt = <p onClick={this.changeState}>{this.props.alt}</p>
+            pictureOrAlt = <div className='divSize' onClick={this.changeState}>{this.props.alt}</div>
         }
         return (
-            <div>
+            <Grid item xs className='GridSpacing'>
                 {pictureOrAlt}
-                {/* <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/> */}
                 <button value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</button>
-            </div>
+            </Grid>
         );
     }
 }
