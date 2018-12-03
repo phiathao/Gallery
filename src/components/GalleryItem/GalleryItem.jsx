@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class GalleryItem extends Component {
     state = {
-        pictureIsClick : false
+        pictureIsClick : false,
+        pictureLike : this.props.like
     }
     changeState = (event) => {
         if(this.state.pictureIsClick){
@@ -17,6 +18,12 @@ class GalleryItem extends Component {
             })
         }
     }
+    addLikes = (id)=> {
+        this.props.likeFn(id);
+        this.setState({
+            pictureLike : this.state.pictureLike + 1
+        })
+    }
     render(){
         let pictureOrAlt
         if (!this.state.pictureIsClick){
@@ -28,7 +35,7 @@ class GalleryItem extends Component {
             <div>
                 {pictureOrAlt}
                 {/* <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/> */}
-                <button onClick={ ()=> this.props.likeFn(this.props.id)}>{this.props.like} Likes</button>
+                <button value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</button>
             </div>
         );
     }

@@ -20,8 +20,17 @@ class App extends Component {
       })
     })
     .catch((error)=>{
-      console.log(error)
+      console.log(error);
     })
+  }
+  putGallery = (id)=>{
+    Axios.put(`/gallery/like/${id}`)
+    .then((response)=>{
+      console.log(response);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
   }
   render() {
     return (
@@ -32,7 +41,7 @@ class App extends Component {
         <br/>
         <p>Gallery goes here</p>
         <img alt="just a goat" src="images/goat_small.jpg"/>
-        <GalleryList GalleryList={this.state.GalleryList} />
+        <GalleryList GalleryList={this.state.GalleryList} putGallery={this.putGallery}/>
       </div>
     );
   }
