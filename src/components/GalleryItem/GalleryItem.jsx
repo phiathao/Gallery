@@ -18,9 +18,16 @@ class GalleryItem extends Component {
         }
     }
     render(){
+        let pictureOrAlt
+        if (!this.state.pictureIsClick){
+            pictureOrAlt = <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/>
+        } else {
+            pictureOrAlt = <p onClick={this.changeState}>{this.props.alt}</p>
+        }
         return (
             <div>
-                <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/>
+                {pictureOrAlt}
+                {/* <img alt={this.props.alt} src={this.props.img} onClick={this.changeState}/> */}
                 <button onClick={ ()=> this.props.likeFn(this.props.id)}>{this.props.like} Likes</button>
             </div>
         );
