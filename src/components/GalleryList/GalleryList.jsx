@@ -4,7 +4,7 @@ import GalleryItem from '../GalleryItem/GalleryItem.jsx'
 class GalleryList extends Component {
     render(){
         let GalleryList = this.props.GalleryList.map( (gallery) => {
-            return <GalleryItem img={gallery.path} like={gallery.likes} alt={gallery.description} id={gallery.id}/>
+            return <div key={gallery.id}><GalleryItem img={gallery.path} like={gallery.likes} alt={gallery.description} id={gallery.id}/></div>
         })
         return (
             <div>
