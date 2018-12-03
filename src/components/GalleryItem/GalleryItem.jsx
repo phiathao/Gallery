@@ -44,7 +44,7 @@ class GalleryItem extends Component {
             <Grid item xs className='GridSpacing'>
                 {pictureOrAlt}
                 <MuiThemeProvider theme={theme}>
-                <Button color='primary' value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</Button>
+                <Button variant='outlined' color='primary' value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</Button>
                 </MuiThemeProvider>
             </Grid>
         );
