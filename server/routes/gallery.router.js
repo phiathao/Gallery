@@ -48,7 +48,6 @@ pool.on('error', (error) => {
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-    console.log(req.params);
     const galleryId = req.params.id;
     let queryString = `UPDATE "galleryItems" SET "likes" = "likes" + 1 WHERE "id" = $1;`;
     pool.query(queryString, [galleryId])

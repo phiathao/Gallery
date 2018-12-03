@@ -9,12 +9,10 @@ class GalleryItem extends Component {
     }
     changeState = (event) => {
         if(this.state.pictureIsClick){
-            console.log(this.state.pictureIsClick);
             this.setState({
                 pictureIsClick: false
             });
         } else {
-            console.log(this.state.pictureIsClick);
             this.setState({
                 pictureIsClick: true
             })

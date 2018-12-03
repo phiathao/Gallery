@@ -9,12 +9,10 @@ class App extends Component {
   }
   componentDidMount(){
     this.getGallery()
-    console.log(this.state.GalleryList)
   }
   getGallery = ()=>{
     Axios.get('/gallery')
     .then((response) =>{
-      console.log(response);
       this.setState({
         GalleryList : response.data
       })
