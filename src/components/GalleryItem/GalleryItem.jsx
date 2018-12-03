@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './GalleryItem.css';
+import Button from '@material-ui/core/Button';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+  },
+});
 
 class GalleryItem extends Component {
     state = {
@@ -34,7 +43,9 @@ class GalleryItem extends Component {
         return (
             <Grid item xs className='GridSpacing'>
                 {pictureOrAlt}
-                <button value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</button>
+                <MuiThemeProvider theme={theme}>
+                <Button color='primary' value={this.state.pictureLike} onClick={()=>this.addLikes(this.props.id)}>{this.state.pictureLike} Likes</Button>
+                </MuiThemeProvider>
             </Grid>
         );
     }
